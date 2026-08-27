@@ -120,36 +120,6 @@ Publisher --> Broker
 
 ## 躓いたポイント
 
-### パッケージ取得時の Timeout
-
-Mosquitto インストール時、パッケージミラーへの接続が timeout。
-
-```text
-Curl error (28): Timeout was reached
-```
-
-再実行で解消。
-
-### `systemctl enable` だけでは起動しない
-
-```bash
-sudo systemctl enable mosquitto
-```
-
-だけではサービスは起動しなかった。
-
-```bash
-sudo systemctl start mosquitto
-```
-
-または、
-
-```bash
-sudo systemctl enable --now mosquitto
-```
-
-を使用。
-
 ### Broker が localhost のみで Listen
 
 初期状態:
@@ -169,7 +139,7 @@ sudo systemctl enable --now mosquitto
 include_dir /etc/mosquitto/conf.d
 ```
 
-を追加した。
+を/etc/mosquitto/mosquitto.confに追加した。
 
 ## 今回確認したこと
 
